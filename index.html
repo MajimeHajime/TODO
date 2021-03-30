@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - First Project</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div id="main_body_col">
+        <div>
+            <p style="center"> 
+                </p>
+        </div>
+        <div id="main_body">
+            <div class="windows">
+                <span class="stylized">・todo list・</span>
+                <div class="flex-body gap">
+                    <div class="flex-body">
+                        <form>
+                            <input id="input-text" class="styledd" type="text">
+                        </form>
+                        <button class="styled" id="todo-new">+</button>
+                    </div>
+                    <div>
+                        <select name="sortby" class="styled" id="cat">
+                            <option value="f">finished</option>
+                            <option value="u">unfinished</option>
+                            <option value="a">all</option>
+                        </select>
+                        <!-- <button class="styled" id="sel-btn">select
+                        </button> -->
+                    </div>
+                </div>
+                <div id="todo-list">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JS starts here! -->
+    <script src="assets/js/todo.js"></script>
+</body>
+
+</html>
