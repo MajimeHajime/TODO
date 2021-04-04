@@ -146,6 +146,15 @@ p {
   margin: 2px 20px 2px 5px;
 }
 
+@keyframes deletionItem {
+  0% {
+  }
+  100% {
+    transform: translate(0px, 10px);
+    opacity: 0;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .windows {
     flex-basis: 70%;

@@ -9,6 +9,31 @@ const filterBtn = document.getElementById("cat");
 document.addEventListener("DOMContentLoaded", getLocal);
 document.addEventListener("DOMContentLoaded", getFinished);
 
+function addItem(e) {
+    const newItem = document.createElement("p");
+    newItem.classList.add("item");
+    newItem.innerText = inputText.value;
+    storeLocal(inputText.value);
+    const selectBut = document.createElement("button");
+    selectBut.classList.add("select-button");
+    selectBut.classList.add("styled");
+    selectBut.innerText = "✓";
+    const deleteBut = document.createElement("button");
+    deleteBut.classList.add("delete-button");
+    deleteBut.classList.add("styled");
+    deleteBut.innerText = "delete";
+    const itemContainer= document.createElement("div");
+    itemContainer.classList.add("secondItem");
+    itemContainer.appendChild(selectBut);
+    itemContainer.appendChild(deleteBut);
+    const desuDesu = document.createElement("div");
+    desuDesu.classList.add("forTheItem");
+    desuDesu.appendChild(newItem);
+    desuDesu.appendChild(itemContainer);
+    itemContainer.addEventListener("click", itemToggle);
+    todoList.appendChild(desuDesu);
+    inputText.value = "";
+}
 
 filterBtn.addEventListener("click", e => {
     console.log(todoItems);
@@ -36,31 +61,17 @@ filterBtn.addEventListener("click", e => {
     }
 })
 
-buttonForAdd.addEventListener("click", e => {
-    const newItem = document.createElement("p");
-    newItem.classList.add("item");
-    newItem.innerText = inputText.value;
-    storeLocal(inputText.value);
-    const selectBut = document.createElement("button");
-    selectBut.classList.add("select-button");
-    selectBut.classList.add("styled");
-    selectBut.innerText = "✓";
-    const deleteBut = document.createElement("button");
-    deleteBut.classList.add("delete-button");
-    deleteBut.classList.add("styled");
-    deleteBut.innerText = "delete";
-    const itemContainer= document.createElement("div");
-    itemContainer.classList.add("secondItem");
-    itemContainer.appendChild(selectBut);
-    itemContainer.appendChild(deleteBut);
-    const desuDesu = document.createElement("div");
-    desuDesu.classList.add("forTheItem");
-    desuDesu.appendChild(newItem);
-    desuDesu.appendChild(itemContainer);
-    itemContainer.addEventListener("click", itemToggle);
-    todoList.appendChild(desuDesu);
-    inputText.value = "";
+document.addEventListener("keydown", e => {
+    console.log(e);
 });
+inputText.addEventListener("keydown", e => {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        addItem();
+    }
+});
+
+buttonForAdd.addEventListener("click", addItem);
 
 function itemToggle(e){
     const item = e.target;
@@ -81,8 +92,12 @@ function itemToggle(e){
     }
     if(item.classList[0] == "delete-button"){
         e.stopPropagation();
-        deleteLocal(e.target.parentElement.parentElement.firstChild.innerText);
-        e.target.parentNode.parentElement.remove();
+        e.target.parentElement.parentElement.style.animation = `deletionItem 0.2s alternate ease-out`;
+        e.target.parentElement.parentElement.addEventListener('animationend', () => {
+            console.log("delted");
+            deleteLocal(e.target.parentElement.parentElement.firstChild.innerText);
+            e.target.parentNode.parentElement.remove();
+        });
     }
 }
 
