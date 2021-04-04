@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", getLocal);
 document.addEventListener("DOMContentLoaded", getFinished);
 
 
-filterBtn.addEventListener("click", function(e){
+filterBtn.addEventListener("click", e => {
     console.log(todoItems);
     for (item of todoItems){
         switch (e.target.value){
@@ -36,7 +36,7 @@ filterBtn.addEventListener("click", function(e){
     }
 })
 
-buttonForAdd.addEventListener("click", function(e){
+buttonForAdd.addEventListener("click", e => {
     const newItem = document.createElement("p");
     newItem.classList.add("item");
     newItem.innerText = inputText.value;

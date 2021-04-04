@@ -1,5 +1,5 @@
 body {
-  margin: 10px 50px;
+  margin: 10px 10px;
   color: rgb(210, 115, 138);
   background-color: black;
   font-family: "Times New Roman", Times, serif;
@@ -21,7 +21,7 @@ body {
   border: 1px solid rgb(210, 115, 138);
   padding: 10px 20px;
   text-align: center;
-  flex-basis: 40%;
+  flex-basis: 100%;
   flex-wrap: nowrap;
 }
 .flex-body {
@@ -119,6 +119,7 @@ body {
 }
 
 .forTheItem {
+  text-align: left;
   margin-top: 10px;
   justify-content: space-between;
   width: 60%;
@@ -130,6 +131,7 @@ body {
 }
 
 .secondItem {
+  align-items: center;
   justify-content: flex-end;
   gap: 10px;
   width: 40%;
@@ -142,4 +144,10 @@ body {
 
 p {
   margin: 2px 20px 2px 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .windows {
+    flex-basis: 70%;
+  }
 }
